@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Prasanth Kumar - Business Intelligence &amp; Full-Stack Developer specializing in ETL, Power BI, SQL Server, and web applications. 2.8+ years experience building scalable analytics and full-stack solutions.">
+    <title>Prasanth Kumar - BI &amp; Full-Stack Developer Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prasanth Kumar — BI &amp; Full-Stack Developer">
+    <meta property="og:description"
+        content="Business Intelligence &amp; Full-Stack Developer with 2.8+ years at William O'Neil India. Expert in Power BI, SQL Server, SSIS, React, and Node.js.">
+    <meta property="og:url" content="https://prasanth-kumar.dev">
+    <meta property="og:site_name" content="Prasanth Kumar Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Prasanth Kumar — BI &amp; Full-Stack Developer">
+    <meta name="twitter:description"
+        content="Business Intelligence &amp; Full-Stack Developer with 2.8+ years at William O'Neil India. Power BI, SQL Server, SSIS, React, Node.js.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Blue-Neutral Palette (Slate/Blue-Grey) */
+            --primary: #0f172a;
+            /* Slate 900 - Deep Neutral Blue */
+            --accent: #38bdf8;
+            /* Sky 400 - Clear Blue Accent */
+            --accent-light: #7dd3fc;
+            --accent-dark: #0ea5e9;
+            --text: #f1f5f9;
+            /* Slate 50 */
+            --text-muted: #94a3b8;
+            /* Slate 400 */
+            --surface: #1e293b;
+            /* Slate 800 */
+            --surface-light: #334155;
+            /* Slate 700 */
+            --grid: #475569;
+            /* Slate 600 - Grid lines */
+            --warning: #fb923c;
+            --success: #4ade80;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .particles {
+                display: none;
+            }
+        }
+
+        /* Animated Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+            /* Allow clicks to pass through */
+            animation: gridPulse 20s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.15;
+            }
+        }
+
+        /* Data Particles Effect - Reduced on mobile */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            padding: 1.5rem 0;
+            background: rgba(15, 23, 42, 0.95);
+            /* Slate 900 with opacity */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--grid);
+            z-index: 100;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        /* Keyboard focus styles */
+        nav a:focus-visible,
+        .btn:focus-visible,
+        .contact-item:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 0 4rem;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--text) 0%, var(--accent-light) 50%, var(--text) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .looking-for {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Tech Stack Quick View */
+        .tech-stack-banner {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tech-stack-banner h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-tag-large {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            background: var(--surface-light);
+            color: var(--accent-light);
+            border-radius: 6px;
+            border: 1px solid var(--grid);
+            font-weight: 600;
+        }
+
+        /* Key Highlights Section */
+        .highlights {
+            margin-bottom: 4rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shine Effect for Cards */
+        .highlight-card::after,
+        .skill-category::after,
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.05) 50%,
+                    transparent 100%);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .highlight-card:hover::after,
+        .skill-category:hover::after,
+        .project-card:hover::after {
+            left: 100%;
+            transition: 0.7s ease-in-out;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+            border-left-color: var(--accent-light);
+        }
+
+        .highlight-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .highlight-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Section Titles */
+        .section {
+            padding: 4rem 0;
+            animation: fadeIn 1s ease-out both;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-number {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section - More Compact */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--grid);
+            transition: all 0.3s;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li:hover {
+            color: var(--accent-light);
+            padding-left: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 10px 30px rgba(0, 180, 216, 0.15);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            font-weight: 700;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-top: 0.3rem;
+        }
+
+        .experience-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            background: var(--surface-light);
+            border-radius: 20px;
+        }
+
+        .experience-highlights {
+            list-style: none;
+        }
+
+        .experience-highlights li {
+            padding: 0.6rem 0;
+            color: var(--text-muted);
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .experience-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .metric {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(0, 180, 216, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--surface-light), var(--surface));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--grid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 50px,
+                    var(--grid) 50px,
+                    var(--grid) 51px),
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 50px,
+                    var(--grid) 50px,
+                    var(--grid) 51px);
+            opacity: 0.3;
+        }
+
+        .project-placeholder {
+            position: relative;
+            z-index: 1;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            background: var(--surface-light);
+            color: var(--accent);
+            border-radius: 12px;
+            border: 1px solid var(--grid);
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-outcomes {
+            background: rgba(6, 214, 160, 0.1);
+            border-left: 3px solid var(--success);
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .project-outcomes p {
+            color: var(--success);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--accent-light));
+        }
+
+        .education-institution {
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-degree {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .coursework {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: var(--surface);
+            border: 1px solid var(--grid);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .contact-info h4 {
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--grid);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            position: relative;
+            /* Ensure it's above background */
+            z-index: 2;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Reduce particles on mobile for performance */
+            .particle:nth-child(n+11) {
+                display: none;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fade In Animation Class */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            cursor: default;
+            transition: 0.3s;
+        }
+
+        /* ── Scroll Progress Bar ── */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            z-index: 9999;
+            transition: width 0.1s linear;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* ── Hamburger Menu (Mobile) ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--grid);
+                z-index: 150;
+            }
+
+            nav.nav-open {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* ── Typewriter Effect ── */
+        .typewriter-wrapper {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 700;
+            border-right: 2px solid var(--accent);
+            padding-right: 4px;
+            animation: blink-cursor 0.75s step-end infinite;
+            min-width: 260px;
+        }
+
+        @keyframes blink-cursor {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--accent);
+            }
+        }
+
+        /* ── Pulsing "Live" dot for Looking-For badge ── */
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.6;
+            }
+        }
+
+        /* ── Floating Back-to-Top Button ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+            transition: all 0.3s;
+            z-index: 500;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+        }
+
+        /* ── Availability Banner ── */
+        .availability-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.35);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .availability-banner .avail-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        /* ── Certification Cards ── */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-card {
+            background: var(--surface-light);
+            border: 1px solid var(--grid);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .cert-card .cert-icon {
+            font-size: 1.5rem;
+        }
+
+        .cert-card .cert-name {
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .cert-card .cert-status {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .cert-status.hands-on {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .cert-status.in-progress {
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--warning);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+        }
+
+        .cert-status.completed {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Prasanth Kumar",
+      "jobTitle": "Business Intelligence & Full-Stack Developer",
+      "url": "https://linkedin.com/in/prasanth-kumar-945584284",
+      "email": "mailto:prasanthkumar127@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/prasanth-kumar-945584284"
+      ]
+    }
+    </script>
+
+</head>
+
+<body id="top">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Animated Background -->
+    <div class="grid-background" aria-hidden="true"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" aria-label="Prasanth Kumar">&lt;PK/&gt;</div>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav role="navigation" aria-label="Main navigation" id="main-nav">
+                    <a href="#about">About</a>
+                    <a href="#highlights">Highlights</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <div class="container">
+                <h1 class="hero-title">Prasanth Kumar</h1>
+                <p class="hero-subtitle">
+                    Business Intelligence &amp; Full-Stack Developer with 2.8+ years of experience building ETL
+                    pipelines,
+                    Power BI dashboards, and data-driven web apps at William O'Neil India. IIT Palakkad CS graduate
+                    specializing in SQL Server, SSIS, React, and API-driven development.
+                </p>
+                <p class="hero-subtitle" style="margin-top:-0.5rem;">
+                    Currently specializing in: <span class="typewriter-wrapper" id="typewriter">BI Developer</span>
+                </p>
+
+                <div class="looking-for">
+                    <span class="live-dot" aria-hidden="true"></span>🎯 Open to roles: BI Developer | Analytics Engineer
+                    | Data Analyst | Full-Stack Developer
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://drive.google.com/file/d/1jplrPg0Oxu63LDDqhs81E6q8gLOXRyUg/view?usp=sharing"
+                        class="btn btn-primary"
+                        onclick="window.open('https://drive.google.com/file/d/1jplrPg0Oxu63LDDqhs81E6q8gLOXRyUg/view?usp=sharing', 'ResumeWindow', 'width=900,height=700,top=100,left=200,resizable=yes,scrollbars=yes'); return false;"
+                        rel="noopener noreferrer">
+                        📄 Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        📧 Get In Touch
+                    </a>
+                    <a href="https://linkedin.com/in/prasanth-kumar-945584284" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/prasanth-kumar" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary">
+                        🧑‍💻 GitHub
+                    </a>
+                </div>
+
+                <!-- Tech Stack Quick View -->
+                <div class="tech-stack-banner">
+                    <h3>Core Tech Stack</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag-large">SQL Server</span>
+                        <span class="tech-tag-large">T-SQL</span>
+                        <span class="tech-tag-large">Power BI</span>
+                        <span class="tech-tag-large">DAX</span>
+                        <span class="tech-tag-large">SSIS</span>
+                        <span class="tech-tag-large">SSDT</span>
+                        <span class="tech-tag-large">Python</span>
+                        <span class="tech-tag-large">PySpark</span>
+                        <span class="tech-tag-large">React.js</span>
+                        <span class="tech-tag-large">Node.js</span>
+                        <span class="tech-tag-large">REST APIs</span>
+                        <span class="tech-tag-large">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card" style="margin-top: 1.5rem;">
+                    <span class="highlight-number">Full-Stack</span>
+                    <p class="highlight-text">
+                        Built React + Node.js dashboards on top of SQL Server data, enabling faster self-serve
+                        reporting with role-based access and API-driven views
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights Section -->
+        <section class="highlights" id="highlights">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01.</span>
+                    <h2 class="section-title">Key Achievements</h2>
+                </div>
+
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <span class="highlight-number">50+</span>
+                        <p class="highlight-text">
+                            Stakeholders actively using Power BI dashboards built with advanced DAX measures
+                            for real-time business performance tracking
+                        </p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <span class="highlight-number">100%</span>
+                        <p class="highlight-text">
+                            Automated daily ETL processes with SSIS, eliminating manual data integration
+                            and reducing error rates through validation rules
+                        </p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <span class="highlight-number">40%</span>
+                        <p class="highlight-text">
+                            Improved query performance through T-SQL optimization and stored procedure tuning,
+                            reducing dashboard refresh times
+                        </p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <span class="highlight-number">Enterprise</span>
+                        <p class="highlight-text">
+                            Designed star-schema data warehouse supporting millions of transactional records
+                            with scalable dimensional modeling
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02.</span>
+                    <h2 class="section-title">Professional Experience</h2>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Business Intelligence Developer</h3>
+                            <p class="experience-company">William O'Neil India • Bengaluru, Karnataka</p>
+                        </div>
+                        <span class="experience-date">Jun 2023 – Present (2 Years, 8 Months)</span>
+                    </div>
+
+                    <ul class="experience-highlights">
+                        <li>Designed and maintained SSIS/SSDT ETL pipelines integrating disparate source systems into a
+                            centralized SQL Server data warehouse, processing <span class="metric">1M+ records
+                                daily</span></li>
+                        <li>Engineered complex T-SQL queries and stored procedures achieving <span class="metric">40%
+                                performance improvement</span> through indexing and query optimization for Power BI and
+                            SSRS reports</li>
+                        <li>Delivered interactive Power BI dashboards with advanced DAX measures, actively used by <span
+                                class="metric">50+ stakeholders</span> across business units to track KPIs and drive
+                            decision-making</li>
+                        <li>Implemented automated validation rules within ETL workflows, increasing data reliability by
+                            <span class="metric">95%+</span> and reducing data quality incidents for downstream
+                            reporting
+                        </li>
+                        <li>Collaborated with cross-functional teams in Agile sprints to translate business requirements
+                            into dimensional models, delivering <span class="metric">10+ analytics solutions</span> on
+                            schedule</li>
+                        <li>Contributed to internal web-based reporting interfaces using React.js and REST APIs,
+                            improving user experience and reducing report access time by <span class="metric">60%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03.</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span class="project-placeholder">📊</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Enterprise BI Dashboard for Business Performance</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">SQL Server</span>
+                                <span class="tech-tag">DAX</span>
+                                <span class="tech-tag">Star Schema</span>
+                                <span class="tech-tag">SSRS</span>
+                            </div>
+                            <p class="project-description">
+                                Architected a scalable star-schema data warehouse in SQL Server supporting
+                                enterprise-wide
+                                analytics. Built automated Power BI dashboards with drill-through capabilities,
+                                row-level
+                                security, and dynamic DAX measures to surface performance trends across departments.
+                            </p>
+                            <div class="project-outcomes">
+                                <p>✓ Serves 50+ users daily | 15+ interconnected dashboards | 40% faster refresh times
+                                </p>
+                            </div>
+                            <div class="project-links">
+                                <a href="#contact" class="project-link" aria-label="Request screenshots via contact">📸
+                                    Request Screenshots →</a>
+                                <a href="#contact" class="project-link" aria-label="Request case study via contact">📖
+                                    Request Case Study →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span class="project-placeholder">⚙️</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Automated ETL Framework for Daily Reporting</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">SSIS</span>
+                                <span class="tech-tag">SSDT</span>
+                                <span class="tech-tag">SQL Server</span>
+                                <span class="tech-tag">T-SQL</span>
+                                <span class="tech-tag">Error Handling</span>
+                            </div>
+                            <p class="project-description">
+                                Developed a robust SSIS-based ETL framework to extract, transform, and load large-volume
+                                transactional data into a reporting warehouse. Implemented comprehensive error handling,
+                                data validation checkpoints, and automated email notifications for failures.
+                            </p>
+                            <div class="project-outcomes">
+                                <p>✓ Processes 1M+ records/day | 100% automation | 95%+ data accuracy</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="#contact" class="project-link"
+                                    aria-label="Request architecture diagram via contact">💻 Request Architecture
+                                    Diagram →</a>
+                                <a href="#contact" class="project-link"
+                                    aria-label="Request impact report via contact">📊 Request Impact Report →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span class="project-placeholder">🌐</span>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Full-Stack Data Visualization Dashboard</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">SQL Server</span>
+                                <span class="tech-tag">REST API</span>
+                                <span class="tech-tag">Chart.js</span>
+                            </div>
+                            <p class="project-description">
+                                Built a responsive web application to visualize transactional trends with real-time data
+                                fetching from SQL Server via custom REST API. Features interactive charts with
+                                React-chartjs-2,
+                                mobile-first UI using Bootstrap, and role-based access control.
+                            </p>
+                            <div class="project-outcomes">
+                                <p>✓ 60% faster report access | Mobile-responsive | Real-time updates</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="#contact" class="project-link"
+                                    aria-label="Request live demo link via contact">🔗 Request Live Demo →</a>
+                                <a href="https://github.com/prasanth-kumar" target="_blank" rel="noopener noreferrer"
+                                    class="project-link" aria-label="Open GitHub profile">📁 GitHub Repo →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04.</span>
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>📊 BI & Visualization</h3>
+                        <ul class="skill-list">
+                            <li>Power BI & Advanced DAX</li>
+                            <li>SSRS (Report Builder)</li>
+                            <li>KPI Dashboards</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>⚙️ Data Engineering</h3>
+                        <ul class="skill-list">
+                            <li>SSIS & SSDT</li>
+                            <li>ETL Pipeline Design</li>
+                            <li>Performance Tuning</li>
+                            <li>Data Quality & Validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>💾 Databases</h3>
+                        <ul class="skill-list">
+                            <li>SQL Server & T-SQL</li>
+                            <li>Stored Procedures</li>
+                            <li>Data Warehousing</li>
+                            <li>Star Schema Design</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>🐍 Programming</h3>
+                        <ul class="skill-list">
+                            <li>Python & PySpark</li>
+                            <li>pandas (EDA)</li>
+                            <li>Statistics</li>
+                            <li>Machine Learning</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>🌐 Web Development</h3>
+                        <ul class="skill-list">
+                            <li>React.js & JavaScript</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>REST APIs</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="skill-category">
+                        <h3>🧩 Backend & APIs</h3>
+                        <ul class="skill-list">
+                            <li>Node.js (Express)</li>
+                            <li>REST API Design</li>
+                            <li>Authentication (JWT)</li>
+                            <li>Integration Testing (basic)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>🛠️ Tools & Practices</h3>
+                        <ul class="skill-list">
+                            <li>Git & Version Control</li>
+                            <li>Agile / Sprint Delivery</li>
+                            <li>Documentation</li>
+                            <li>Performance Monitoring (basic)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🎓 Certifications &amp; Learning</h3>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <span class="cert-icon">📊</span>
+                                <span class="cert-name">Microsoft Power BI / Fabric</span>
+                                <span class="cert-status in-progress">🔄 In Progress</span>
+                            </div>
+                            <div class="cert-card">
+                                <span class="cert-icon">🗄️</span>
+                                <span class="cert-name">SQL Server Advanced Querying</span>
+                                <span class="cert-status hands-on">🛠 Hands-On</span>
+                            </div>
+                            <div class="cert-card">
+                                <span class="cert-icon">⚙️</span>
+                                <span class="cert-name">Data Engineering (ETL / SSIS)</span>
+                                <span class="cert-status completed">✔ Completed</span>
+                            </div>
+                            <div class="cert-card">
+                                <span class="cert-icon">🌐</span>
+                                <span class="cert-name">Full-Stack React / Node.js</span>
+                                <span class="cert-status hands-on">🛠 Hands-On</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">05.</span>
+                    <h2 class="section-title">Education</h2>
+                </div>
+
+                <div class="education-card">
+                    <h3 class="education-institution">Indian Institute of Technology (IIT) Palakkad</h3>
+                    <p class="education-degree">Bachelor of Technology (B.Tech), Computer Science</p>
+                    <p class="education-date">July 2018 – May 2023</p>
+                    <p class="coursework">
+                        <strong>Relevant Coursework:</strong> Data Structures, Algorithms, Database Management Systems,
+                        Web Technologies, Machine Learning, Statistics & Probability
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">06.</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+
+                <div class="availability-banner" role="status" aria-live="polite">
+                    <span class="avail-dot" aria-hidden="true"></span>
+                    🟢 Available for new opportunities — Open to BI Developer, Data Analyst &amp; Full-Stack roles
+                </div>
+
+                <div class="contact-grid">
+                    <a href="mailto:prasanthkumar127@gmail.com" class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">📧</div>
+                        <div class="contact-info">
+                            <h4>Email</h4>
+                            <p>prasanthkumar127@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <a href="tel:+916303854293" class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">📱</div>
+                        <div class="contact-info">
+                            <h4>Phone</h4>
+                            <p>+91-6303854293</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://github.com/prasanth-kumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">🧑‍💻</div>
+                        <div class="contact-info">
+                            <h4>GitHub</h4>
+                            <p>View Code &amp; Projects</p>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/prasanth-kumar-945584284" target="_blank" rel="noopener noreferrer"
+                        class="contact-item">
+                        <div class="contact-icon" aria-hidden="true">💼</div>
+                        <div class="contact-info">
+                            <h4>LinkedIn</h4>
+                            <p>View Professional Profile</p>
+                        </div>
+                    </a>
+
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon" aria-hidden="true">📍</div>
+                        <div class="contact-info">
+                            <h4>Location</h4>
+                            <p>Bengaluru, Karnataka, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Prasanth Kumar. Built with precision and care.</p>
+            <a href="#top" class="back-to-top">↑ Back to Top</a>
+        </div>
+    </footer>
+
+    <script>
+        // ── 1. Declare shared constants FIRST (fix variable-order bug) ──
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = window.innerWidth < 768;
+
+        // ── 2. Floating Particles ──
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = isMobile ? 10 : 30;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = `${Math.random() * 100}%`;
+                p.style.animationDelay = `${Math.random() * 15}s`;
+                p.style.animationDuration = `${15 + Math.random() * 10}s`;
+                container.appendChild(p);
+            }
+        }
+        if (!prefersReducedMotion) createParticles();
+
+        // ── 3. Scroll Progress Bar ──
+        const progressBar = document.getElementById('scroll-progress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }
+        window.addEventListener('scroll', updateProgress, { passive: true });
+
+        // ── 4. Active Navigation Highlight ──
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        function highlightNav() {
+            const scrollPos = window.scrollY + 100;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const id = section.getAttribute('id');
+                if (scrollPos >= top && scrollPos < top + section.offsetHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNav, { passive: true });
+
+        // ── 5. Smooth Scroll (same-page anchors ONLY, skips external links) ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only handle anchors that are valid same-page IDs
+                if (href.length <= 1) return;
+                const target = document.querySelector(href);
+                if (!target) return;
+                e.preventDefault();
+                const offset = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+                // Close mobile nav if open
+                nav.classList.remove('nav-open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ── 6. Hamburger Menu Toggle ──
+        const hamburger = document.getElementById('hamburger-btn');
+        const nav = document.getElementById('main-nav');
+        hamburger.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+        });
+        // Close nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+                nav.classList.remove('nav-open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // ── 7. Typewriter Effect ──
+        const typewriterEl = document.getElementById('typewriter');
+        const roles = [
+            'BI Developer',
+            'Analytics Engineer',
+            'Data Analyst',
+            'Full-Stack Developer',
+            'ETL / SSIS Expert',
+            'Power BI Specialist'
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeLoop() {
+            if (!typewriterEl) return;
+            const current = roles[roleIndex];
+            if (!deleting) {
+                typewriterEl.textContent = current.slice(0, ++charIndex);
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(typeLoop, 1800); // pause before deleting
+                    return;
+                }
+            } else {
+                typewriterEl.textContent = current.slice(0, --charIndex);
+                if (charIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+            }
+            setTimeout(typeLoop, deleting ? 60 : 100);
+        }
+        if (!prefersReducedMotion) setTimeout(typeLoop, 800);
+
+        // ── 8. Intersection Observer — Staggered Fade-in ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.section, .skill-category, .project-card, .highlight-card, .experience-item').forEach((el, i) => {
+            if (!prefersReducedMotion) {
+                el.classList.add('fade-in-section');
+                el.style.transitionDelay = `${(i % 5) * 100}ms`;
+            }
+            observer.observe(el);
+        });
+
+        // ── 9. Mouse Parallax for Grid Background ──
+        if (!prefersReducedMotion && !isMobile) {
+            const grid = document.querySelector('.grid-background');
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                grid.style.transform = `translate(${-(x * 20)}px, ${-(y * 20)}px)`;
+            });
+        }
+
+        // ── 10. Floating Back-to-Top Button (show/hide) ──
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.style.opacity = '0';
+            backToTopBtn.style.pointerEvents = 'none';
+            backToTopBtn.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            window.addEventListener('scroll', () => {
+                const show = window.scrollY > 500;
+                backToTopBtn.style.opacity = show ? '1' : '0';
+                backToTopBtn.style.pointerEvents = show ? 'all' : 'none';
+            }, { passive: true });
+        }
+
+        // ── 11. Initialise on load ──
+        highlightNav();
+        updateProgress();
+    </script>
+</body>
+
+</html>
